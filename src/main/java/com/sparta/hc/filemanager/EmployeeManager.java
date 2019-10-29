@@ -6,28 +6,31 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.*;
 
-public class ReadCSV {
+public class EmployeeManager {
     private final String PATH = "resources/EmployeeRecords.csv";
-    String[] employees;
-//    HashMap<Employee, Employee> currentEmployees;
+    HashMap<String, Employee> record = new HashMap<>();
+
+
+
     public void ReadCSV() {
 
-        Employee employeeID = new Employee();
         BufferedReader bufferedReader;
         String line = "";
 
         try {
             bufferedReader = new BufferedReader(new FileReader(PATH));
+            bufferedReader.readLine();
+            line = bufferedReader.readLine();
 
             while ((line = bufferedReader.readLine()) != null) {
-                employees = line.split(",");
+                String[] employees = line.split(",");
 
-                System.out.println(Arrays.toString(employees));
+                record.put(employees[0], new Employee(employees));
             }
             bufferedReader.close();
 
@@ -35,6 +38,13 @@ public class ReadCSV {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        } catch (ParseException e) {
+            e.printStackTrace();
         }
+
+
     }
+
+
+
 }
