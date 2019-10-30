@@ -7,17 +7,15 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.time.LocalDate;
 import java.util.*;
 
 public class EmployeeManager {
-    private final String PATH = "resources/EmployeeRecords.csv";
+    private final String PATH = "resources/testEmployees.csv";
     HashMap<String, Employee> record = new HashMap<>();
 
 
 
-    public void ReadCSV() {
+    public HashMap<String, Employee> csvReader() {
 
         BufferedReader bufferedReader;
         String line = "";
@@ -38,11 +36,9 @@ public class EmployeeManager {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        } catch (ParseException e) {
-            e.printStackTrace();
         }
 
-
+        return record;
     }
 
 

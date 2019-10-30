@@ -20,7 +20,7 @@ public class Employee {
     DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("M/d/yyyy");
 
 
-    public Employee(String[] employee) throws ParseException {
+    public Employee(String[] employee) {
         for (int i = 1; i < employee.length; i++){
             setEmployeeID(employee[0]);
             setNamePrefix(employee[1]);
