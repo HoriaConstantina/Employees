@@ -12,12 +12,11 @@ public class DAO {
     private final String URL = "jdbc:mysql://localhost/employee?user=root&password=Asdfghjkl123456";
     private final String INSERT = "insert into employee_table values (?,?,?,?,?,?,?,?,?,?)";
 
-
-    public void insertValues(Map<String,Employee> hashMap) {
+    public void insertValues(Map<String,Employee> employeeMap) {
         try(Connection connection = DriverManager.getConnection(URL)) {
             PreparedStatement statement = connection.prepareStatement(INSERT);
 
-            for (Employee employee : hashMap.values()){
+            for (Employee employee : employeeMap.values()){
                 statement.setString(1, employee.getEmployeeID());
                 statement.setString(2, employee.getNamePrefix());
                 statement.setString(3, employee.getFirstName());

@@ -19,6 +19,6 @@ public class Starter
         DAO dao = new DAO();
 //        dao.runSQLQuery("198429");
 
-        dao.insertValues(employeeManager.csvReader());
+        dao.insertValues(employeeManager.getRecords());
     }
 }
