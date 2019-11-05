@@ -31,7 +31,7 @@ public class DAO {
             }
         } catch (SQLException e) {
             e.printStackTrace();
-        } ;
+        }
     }
 
 }
