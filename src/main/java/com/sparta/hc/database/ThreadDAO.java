@@ -59,7 +59,6 @@ public class ThreadDAO {
         Thread[] threadList = new Thread[NO_OF_THREADS];
         EmployeeManager employeeManager = new EmployeeManager();
         Map<String, Employee> employeeMap = employeeManager.csvReader();
-        System.out.println(employeeMap.size());
 
         Employee[] array = employeeMap.values().toArray(new Employee[employeeMap.size()]);
         for (int i = 0; i < NO_OF_THREADS; i++){
