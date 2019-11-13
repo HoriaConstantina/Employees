@@ -14,18 +14,18 @@ public class ThreadDAO {
     private final String INSERT = "insert into employee_table values (?,?,?,?,?,?,?,?,?,?)";
     private final int NO_OF_THREADS = 150;
 
-    public void insertValues(Map<String, Employee> employeeMap) {
+    public void getConnection(Map<String, Employee> employeeMap) {
 
-        try (Connection connection2 = DriverManager.getConnection(URL)) {
-            PreparedStatement statement2 = connection2.prepareStatement(QUERY);
-            statement2.executeUpdate();
+        try (Connection connection = DriverManager.getConnection(URL)) {
+            PreparedStatement statement = connection.prepareStatement(QUERY);
+            statement.executeUpdate();
 
         } catch (SQLException e) {
             e.printStackTrace();
         }
     }
 
-    public Runnable runnable(Employee[] employees) {
+    private Runnable runnable(Employee[] employees) {
         Runnable run = () -> {
             try (Connection connection = DriverManager.getConnection(URL)) {
 

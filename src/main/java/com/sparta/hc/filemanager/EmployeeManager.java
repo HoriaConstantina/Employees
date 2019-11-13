@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class EmployeeManager {
-    private final String PATH = "resources/EmployeeRecords.csv";
+    private final String PATH = "resources/EmployeeRecordsLarge.csv";
     private Map<String, Employee> record = new HashMap<>();
     private Map<String, Employee> duplicates = new HashMap<>();
 

@@ -1,6 +1,5 @@
 package com.sparta.hc;
 
-import com.sparta.hc.database.DAO;
 import com.sparta.hc.database.ThreadDAO;
 import com.sparta.hc.filemanager.EmployeeManager;
 
@@ -15,7 +14,7 @@ public class Starter
         employeeManager.csvReader();
 
         ThreadDAO threadDAO = new ThreadDAO();
-        threadDAO.insertValues(employeeManager.getRecords());
+        threadDAO.getConnection(employeeManager.getRecords());
 //        threadDAO.runnable();
         threadDAO.executeThreads();
         long end = System.nanoTime();
